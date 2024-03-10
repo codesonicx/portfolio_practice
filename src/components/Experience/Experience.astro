@@ -1,0 +1,24 @@
+---
+import Timeline from "./Timeline.astro"
+import { EXPERIENCE } from "./Data.astro"
+
+interface ExperienceProps {
+  title: string;
+  description: string;
+  link?: string;
+  date: string;
+}
+---
+
+<!-- In this component we use map, that is a method to apply a function to each element of an array and return a new array with the results. 
+In this case, we are using it to iterate over the array of objects that we have in the Data.astro file and return a new array 
+with the results of the Timeline component. -->
+<ol class="relative border-s border-gray-200 ml-3">
+    {EXPERIENCE.map((experience: ExperienceProps) => (
+        <li class="mb-10 ms-6">
+            <Timeline {...experience} />   
+        </li>
+    ))}         
+    
+</ol>
+
